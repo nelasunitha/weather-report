@@ -115,6 +115,10 @@ border-radius: 8px;
 font-size: 2em;
 }
 
+#landscape{
+font-size: 75px;
+}
+
 .city-name__reset-btn {
 border: 0;
 background-color: #1655cc;
