@@ -6,10 +6,10 @@ const state = {
   landscape: null,
   headerCityName: null,
   cityNameInput: null,
+  skySelect: null,
 };
 
 const loadControls = () => {
-  // state.tempValue = document.getElementById('tempValue');
   state.increaseTempControlButton = document.getElementById(
     'increaseTempControl'
   );
@@ -20,6 +20,7 @@ const loadControls = () => {
   state.landscape = document.getElementById('landscape');
   state.headerCityName = document.getElementById('headerCityName');
   state.cityNameInput = document.getElementById('cityNameInput');
+  state.skySelect = document.getElementById('skySelect');
 };
 
 let temperature;
@@ -116,12 +117,22 @@ const changeColorByTemperature = (temperature) => {
   }
 };
 
+const changeSky = () => {
+  const skyOption =  state.skySelect.value
+  console.log("Hello")
+  console.log(skyOption)
+    if (skyOption === 'sunny'){
+    document.body.style.backgroundColor = 'orange'
+  }
+};
+
 const registerEventHandlers = () => {
   loadControls();
   state.increaseTempControlButton.addEventListener('click', increaseTemp);
   state.decreaseTempControlButton.addEventListener('click', decreaseTemp);
   state.cityNameInput.addEventListener('input', changeCityName);
   state.currentTempButton.addEventListener('click', getCurrentTemp);
+  state.skySelect.addEventListener('change', changeSky)
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
