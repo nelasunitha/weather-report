@@ -118,13 +118,18 @@ const changeColorByTemperature = (temperature) => {
 };
 
 const changeSky = () => {
-  const skyOption =  state.skySelect.value
-  console.log("Hello")
-  console.log(skyOption)
-    if (skyOption === 'sunny'){
+  let skyOption =  state.skySelect.value
+  if (skyOption === 'sunny'){
     document.body.style.backgroundColor = 'orange'
+  }else if (skyOption === 'cloudy'){
+    document.body.style.backgroundColor = 'lightpink'
+  }else if (skyOption === 'rainy'){
+    document.body.style.backgroundColor = 'lightgreen'
+  }else if (skyOption === 'snowy'){
+    document.body.style.backgroundColor = 'wheat'
   }
-};
+
+}
 
 const registerEventHandlers = () => {
   loadControls();
