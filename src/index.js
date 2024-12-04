@@ -42,12 +42,63 @@ const decreaseTemp = () => {
   temperature = state.tempValue;
   changeColorByTemperature(temperature);
 };
+const getLatAndLon = () => {
+  const city = state.cityNameInput.value;
+  console.log(city);
+  let longitude, latitude;
+  
+  return axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        'q': city,
+      },
+    })
+    .then((response) => {
+      latitude = response.data[0].lat
+      longitude = response.data[0].lon;
+      // console.log(`lat: ${latitude}, lon: ${longitude}`);
+      return (latitude, longitude)
+    })
+    .catch((error) => {
+      console.log('error in findLatitudeAndLongitude!');
+    });
+  }
+  console.log(getLatAndLon())
+  // .then(latLon => {
+  //   console.log(latitude,longitude);
+  // });
+
+// const getWeather = (latitude, longitude) => {
+//   let cityTemp;
+
+//   return axios
+//   .get('http://127.0.0.1:5000/weather', {
+//     params: {
+//     'lat': latitude,
+//     'lon': longitude,
+//     },
+//   })
+//   .then((response) => {
+//     cityTemp = response.data.main.temp
+//     console.log(cityTemp);
+//     return cityTemp;
+//   })
+//   .catch((error) => {
+//     console.log('error in weather');
+//   });
+// }
+
+  
+
+
+
 
 const registerEventHandlers = () => {
   loadControls();
   state.increaseTempControlButton.addEventListener('click', increaseTemp);
   state.decreaseTempControlButton.addEventListener('click', decreaseTemp);
   state.cityNameInput.addEventListener('keyup', changeCityName)
+  state.currentTempButton.addEventListener('click', getLatAndLon)
 };
 
 const changeColorByTemperature = (temperature) => {
