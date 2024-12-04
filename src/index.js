@@ -43,7 +43,6 @@ const decreaseTemp = () => {
 };
 const getLatAndLon = () => {
   const city = state.cityNameInput.value;
-  console.log(city);
   let longitude, latitude;
 
   return axios
@@ -55,7 +54,6 @@ const getLatAndLon = () => {
     .then((response) => {
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
-      // console.log('lat: ', {latitude, longitude});
       return { latitude, longitude };
     })
     .catch((e) => {
@@ -63,7 +61,6 @@ const getLatAndLon = () => {
     });
 };
 const getWeather = (latitude, longitude) => {
-  console.log('lat: ', latitude, 'lon: ', longitude);
   let cityTemp;
 
   return axios
@@ -75,8 +72,7 @@ const getWeather = (latitude, longitude) => {
     })
     .then((response) => {
       cityTemp = response.data.main.temp;
-      tempToFar = ((cityTemp - 273.15) * 9/5 + 32).toFixed(2)
-      console.log(tempToFar);
+      tempToFar = ((cityTemp - 273.15) * 9/5 + 32).toFixed(0);
       return tempToFar;
     })
     .catch((error) => {
@@ -91,10 +87,14 @@ const getCurrentTemp = () => {
     })
     .then((weatherData) => {
       console.log('Temperature in °F :', weatherData);
+      state.tempValue = weatherData
+      document.getElementById('tempValue').textContent = state.tempValue;
+      changeColorByTemperature(weatherData);
     })
     .catch((error) => {
       console.error('Error in overall flow:', error);
     });
+
 };
 
 const changeColorByTemperature = (temperature) => {
