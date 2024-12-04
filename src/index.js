@@ -63,7 +63,7 @@ const getLatAndLon = () => {
     });
 };
 const getWeather = (latitude, longitude) => {
-  console.log('lat: ', latitude, 'lon: ', latitude);
+  console.log('lat: ', latitude, 'lon: ', longitude);
   let cityTemp;
 
   return axios
