@@ -7,6 +7,7 @@ const state = {
   headerCityName: null,
   cityNameInput: null,
   skySelect: null,
+  cityNameReset: null
 };
 
 const loadControls = () => {
@@ -21,12 +22,17 @@ const loadControls = () => {
   state.headerCityName = document.getElementById('headerCityName');
   state.cityNameInput = document.getElementById('cityNameInput');
   state.skySelect = document.getElementById('skySelect');
+  state.cityNameReset = document.getElementById('cityNameReset')
 };
 
 let temperature;
 
 const changeCityName = () => {
   headerCityName.innerText = state.cityNameInput.value;
+};
+const resetCityName = () => {
+state.cityNameInput.value = "";
+state.headerCityName.innerText = ""
 };
 
 const increaseTemp = () => {
@@ -115,6 +121,7 @@ const changeColorByTemperature = (temperature) => {
     tempValue.style.color = 'teal';
     landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
+
 };
 
 const changeSky = () => {
@@ -138,6 +145,9 @@ const registerEventHandlers = () => {
   state.cityNameInput.addEventListener('input', changeCityName);
   state.currentTempButton.addEventListener('click', getCurrentTemp);
   state.skySelect.addEventListener('change', changeSky)
+  state.cityNameReset.addEventListener('click', resetCityName)
+
+
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
