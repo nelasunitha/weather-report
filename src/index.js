@@ -75,8 +75,9 @@ const getWeather = (latitude, longitude) => {
     })
     .then((response) => {
       cityTemp = response.data.main.temp;
-      console.log(cityTemp);
-      return cityTemp;
+      tempToFar = ((cityTemp - 273.15) * 9/5 + 32).toFixed(2)
+      console.log(tempToFar);
+      return tempToFar;
     })
     .catch((error) => {
       console.log(error, 'error in weather');
