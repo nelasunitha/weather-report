@@ -10,7 +10,7 @@ justify-self: center;
 
 font-family: "Rubik", sans-serif;
 font-size: 20px;
-background: url(https://nelasunitha.github.io/weather-report/backgrounds/weather.jpg);
+background: url(../backgrounds/weather.jpg);
 background-repeat: no-repeat;
 background-size:cover;
 margin: 2rem;
