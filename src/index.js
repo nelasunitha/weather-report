@@ -33,6 +33,10 @@ const changeCityName = () => {
 const resetCityName = () => {
 state.cityNameInput.value = "";
 state.headerCityName.innerText = ""
+state.tempValue = 32
+document.getElementById('tempValue').textContent = state.tempValue;
+tempValue.style.color = 'teal';
+landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
 };
 
 const increaseTemp = () => {
@@ -134,9 +138,10 @@ const changeSky = () => {
     document.body.style.backgroundColor = 'lightgreen'
   }else if (skyOption === 'snowy'){
     document.body.style.backgroundColor = 'wheat'
+  }else if (skyOption == 'select'){
+    document.body.style.backgroundColor = '#1b69f9'
   }
-
-}
+};
 
 const registerEventHandlers = () => {
   loadControls();
