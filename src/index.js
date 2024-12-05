@@ -135,19 +135,19 @@ const changeColorByTemperature = (temperature) => {
 const changeSky = () => {
   let skyOption = state.skySelect.value;
   if (skyOption === 'sunny') {
-    document.body.style.backgroundImage = 'url(../assets/sunny_sky.jpg)';
+    document.body.style.backgroundImage = 'url(../backgrounds/sunny_sky.jpg)';
     document.body.style.backgroundSize = 'cover';
   } else if (skyOption === 'cloudy') {
-    document.body.style.backgroundImage = 'url(../assets/cloudy_sky.jpg)';
+    document.body.style.backgroundImage = 'url(../backgrounds/cloudy_sky.jpg)';
     document.body.style.backgroundSize = 'cover';
   } else if (skyOption === 'rainy') {
-    document.body.style.backgroundImage = 'url(../assets/rainy.jpg)';
+    document.body.style.backgroundImage = 'url(../backgrounds/rainy.jpg)';
     document.body.style.backgroundSize = 'cover';
   } else if (skyOption === 'snowy') {
-    document.body.style.backgroundImage = 'url(../assets/snowy.jpg)';
+    document.body.style.backgroundImage = 'url(../backgrounds/snowy.jpg)';
     document.body.style.backgroundSize = 'cover';
   } else if (skyOption == 'select') {
-    document.body.style.background = 'url(../assets/weather.jpg)';
+    document.body.style.background = 'url(../backgrounds/weather.jpg)';
     document.body.style.backgroundSize = 'cover';
   }
 };
