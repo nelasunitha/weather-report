@@ -33,7 +33,8 @@ const changeCityName = () => {
 const resetCityName = () => {
   state.cityNameInput.value = '';
   state.headerCityName.innerText = '';
-  document.getElementById('tempValue').textContent = 32;
+  state.tempValue = 32
+  document.getElementById('tempValue').textContent = state.tempValue;
   tempValue.style.color = 'teal';
   landscape.textContent = '❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️';
 };
