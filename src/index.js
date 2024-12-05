@@ -36,7 +36,7 @@ state.headerCityName.innerText = ""
 state.tempValue = 32
 document.getElementById('tempValue').textContent = state.tempValue;
 tempValue.style.color = 'teal';
-landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+landscape.textContent = '❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️';
 };
 
 const increaseTemp = () => {
@@ -109,21 +109,24 @@ const getCurrentTemp = () => {
 };
 
 const changeColorByTemperature = (temperature) => {
-  if (temperature >= 80) {
+  if (temperature >= 90) {
     tempValue.style.color = 'red';
-    landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    landscape.textContent = '🔥🥵💦🌶️🔥🥵💦🌶️🔥🥵💦🌶️🔥🥵💦🌶️🔥🥵💦🌶️';
+  }else if (temperature >= 80 && temperature <= 89) {
+    tempValue.style.color = 'hotpink';
+    landscape.textContent = '🥥🌴🌺🌅🌊🥥🌴🌺🌅🌊🥥🌴🌺🌅🌊🥥🌴🌺🌅🌊';
   } else if (temperature >= 70 && temperature <= 79) {
     tempValue.style.color = 'purple';
-    landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    landscape.textContent = '😎☀️🍉⛱️🍦😎☀️🍉⛱️🍦😎☀️🍉⛱️🍦😎☀️🍉⛱️🍦';
   } else if (temperature >= 60 && temperature <= 69) {
-    tempValue.style.color = 'blue';
-    landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    tempValue.style.color = 'darkgreen';
+    landscape.textContent = '🐣🌷🌬🌱🐣🌷🌬🌱🐣🌷🌬🌱🐣🌷🌬🌱';
   } else if (temperature >= 50 && temperature <= 59) {
-    tempValue.style.color = 'orange';
-    landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    tempValue.style.color = 'darkorange';
+    landscape.textContent = '☕🍂🧺🧸☕🍂🧺🧸☕🍂🧺🧸☕🍂🧺🧸☕🍂🧺🧸';
   } else {
     tempValue.style.color = 'teal';
-    landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    landscape.textContent = '❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️';
   }
 
 };
@@ -131,15 +134,20 @@ const changeColorByTemperature = (temperature) => {
 const changeSky = () => {
   let skyOption =  state.skySelect.value
   if (skyOption === 'sunny'){
-    document.body.style.backgroundColor = 'orange'
+    document.body.style.backgroundImage = 'url(../assets/sunny_sky.jpg)'
+    document.body.style.backgroundSize = 'cover'
   }else if (skyOption === 'cloudy'){
-    document.body.style.backgroundColor = 'lightpink'
+    document.body.style.backgroundImage = 'url(../assets/cloudy_sky.jpg)'
+    document.body.style.backgroundSize = 'cover'
   }else if (skyOption === 'rainy'){
-    document.body.style.backgroundColor = 'lightgreen'
+    document.body.style.backgroundImage = 'url(../assets/rainy.jpg)'
+    document.body.style.backgroundSize = 'cover'
   }else if (skyOption === 'snowy'){
-    document.body.style.backgroundColor = 'wheat'
+    document.body.style.backgroundImage = 'url(../assets/snowy.jpg)'
+    document.body.style.backgroundSize = 'cover'
   }else if (skyOption == 'select'){
-    document.body.style.backgroundColor = '#1b69f9'
+    document.body.style.background = 'url(../assets/weather.jpg)'
+    document.body.style.backgroundSize = 'cover'
   }
 };
 

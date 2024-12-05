@@ -14,22 +14,33 @@
 <body>
     <header class="header__header">
         <h1>Weather Report</h1>
-        <span>For the lovely city of
-            <span id="headerCityName" class="header__city-name"></span></span>
+        <h2>For the lovely city of
+            <span id="headerCityName" class="header__city-name"></span>
+        </h2>
     </header>
     <section class="temperature__section">
-        <h2>Temperature °F</h2>
+        <h3>Temperature °F</h3>
         <div class="temperature__content">
             <div class="temperature__controls">
                 <button id="increaseTempControl">⬆️</button>
                 <span id="tempValue">32</span>
                 <button id="decreaseTempControl">⬇️</button>
             </div>
-            <button id="currentTempButton">Get Realtime Temperature</button>
         </div>
     </section>
+    <section class="city-name__section">
+        <h2>City Name</h2>
+        <input type="text" id="cityNameInput">
+        <div>
+            <button id="currentTempButton">Get Realtime Temperature</button>
+        </div>
+        <div>
+            <button id="cityNameReset" type="reset" class="city-name__reset-btn">Reset</button>
+        </div>
+        <div></div>
+    </section>
     <section class="sky__section">
-        <h2>Sky</h2>
+        <h4>Sky</h4>
         <select id="skySelect">
             <option value="select">Please select a Sky Option</option>>
             <option value="sunny">Sunny</option>>
@@ -39,17 +50,11 @@
         </select>
     </section>
 
-    <section class="city-name__section">
-        <h2>City Name</h2>
-        <input type="text" id="cityNameInput">
-        <button id="cityNameReset" type="reset" class="city-name__reset-btn">Reset</button>
-    </section>
-
     <section class="garden__section">
         <h2>Weather Garden</h2>
         <div id="gardenContent" class="garden__content">
             <div id="sky"></div>
-            <div id="landscape">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</div>
+            <div id="landscape">❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️</div>
         </div>
     </section>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
