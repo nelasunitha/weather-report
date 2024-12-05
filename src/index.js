@@ -7,7 +7,7 @@ const state = {
   headerCityName: null,
   cityNameInput: null,
   skySelect: null,
-  cityNameReset: null
+  cityNameReset: null,
 };
 
 const loadControls = () => {
@@ -22,7 +22,7 @@ const loadControls = () => {
   state.headerCityName = document.getElementById('headerCityName');
   state.cityNameInput = document.getElementById('cityNameInput');
   state.skySelect = document.getElementById('skySelect');
-  state.cityNameReset = document.getElementById('cityNameReset')
+  state.cityNameReset = document.getElementById('cityNameReset');
 };
 
 let temperature;
@@ -31,12 +31,11 @@ const changeCityName = () => {
   headerCityName.innerText = state.cityNameInput.value;
 };
 const resetCityName = () => {
-state.cityNameInput.value = "";
-state.headerCityName.innerText = ""
-state.tempValue = 32
-document.getElementById('tempValue').textContent = state.tempValue;
-tempValue.style.color = 'teal';
-landscape.textContent = '❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️';
+  state.cityNameInput.value = '';
+  state.headerCityName.innerText = '';
+  document.getElementById('tempValue').textContent = 32;
+  tempValue.style.color = 'teal';
+  landscape.textContent = '❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️';
 };
 
 const increaseTemp = () => {
@@ -83,7 +82,7 @@ const getWeather = (latitude, longitude) => {
     })
     .then((response) => {
       cityTemp = response.data.main.temp;
-      tempToFar = ((cityTemp - 273.15) * 9/5 + 32).toFixed(0);
+      tempToFar = (((cityTemp - 273.15) * 9) / 5 + 32).toFixed(0);
       return tempToFar;
     })
     .catch((error) => {
@@ -98,23 +97,22 @@ const getCurrentTemp = () => {
     })
     .then((weatherData) => {
       console.log('Temperature in °F :', weatherData);
-      state.tempValue = weatherData
+      state.tempValue = weatherData;
       document.getElementById('tempValue').textContent = state.tempValue;
       changeColorByTemperature(weatherData);
     })
     .catch((error) => {
       console.error('Error in overall flow:', error);
     });
-
 };
 
 const changeColorByTemperature = (temperature) => {
   if (temperature >= 90) {
     tempValue.style.color = 'red';
-    landscape.textContent = '🔥🥵💦🌶️🔥🥵💦🌶️🔥🥵💦🌶️🔥🥵💦🌶️🔥🥵💦🌶️';
-  }else if (temperature >= 80 && temperature <= 89) {
+    landscape.textContent = '🔥🥵💦🌶️🔥🥵💦🌶️🔥🥵💦🌶️🔥🥵💦🌶️🔥';
+  } else if (temperature >= 80 && temperature <= 89) {
     tempValue.style.color = 'hotpink';
-    landscape.textContent = '🥥🌴🌺🌅🌊🥥🌴🌺🌅🌊🥥🌴🌺🌅🌊🥥🌴🌺🌅🌊';
+    landscape.textContent = '🥥🌴🌺🌅🌊🥥🌴🌺🌅🌊🥥🌴🌺🌅🌊🥥🌴🌺';
   } else if (temperature >= 70 && temperature <= 79) {
     tempValue.style.color = 'purple';
     landscape.textContent = '😎☀️🍉⛱️🍦😎☀️🍉⛱️🍦😎☀️🍉⛱️🍦😎☀️🍉⛱️🍦';
@@ -128,26 +126,25 @@ const changeColorByTemperature = (temperature) => {
     tempValue.style.color = 'teal';
     landscape.textContent = '❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️';
   }
-
 };
 
 const changeSky = () => {
-  let skyOption =  state.skySelect.value
-  if (skyOption === 'sunny'){
-    document.body.style.backgroundImage = 'url(../assets/sunny_sky.jpg)'
-    document.body.style.backgroundSize = 'cover'
-  }else if (skyOption === 'cloudy'){
-    document.body.style.backgroundImage = 'url(../assets/cloudy_sky.jpg)'
-    document.body.style.backgroundSize = 'cover'
-  }else if (skyOption === 'rainy'){
-    document.body.style.backgroundImage = 'url(../assets/rainy.jpg)'
-    document.body.style.backgroundSize = 'cover'
-  }else if (skyOption === 'snowy'){
-    document.body.style.backgroundImage = 'url(../assets/snowy.jpg)'
-    document.body.style.backgroundSize = 'cover'
-  }else if (skyOption == 'select'){
-    document.body.style.background = 'url(../assets/weather.jpg)'
-    document.body.style.backgroundSize = 'cover'
+  let skyOption = state.skySelect.value;
+  if (skyOption === 'sunny') {
+    document.body.style.backgroundImage = 'url(../assets/sunny_sky.jpg)';
+    document.body.style.backgroundSize = 'cover';
+  } else if (skyOption === 'cloudy') {
+    document.body.style.backgroundImage = 'url(../assets/cloudy_sky.jpg)';
+    document.body.style.backgroundSize = 'cover';
+  } else if (skyOption === 'rainy') {
+    document.body.style.backgroundImage = 'url(../assets/rainy.jpg)';
+    document.body.style.backgroundSize = 'cover';
+  } else if (skyOption === 'snowy') {
+    document.body.style.backgroundImage = 'url(../assets/snowy.jpg)';
+    document.body.style.backgroundSize = 'cover';
+  } else if (skyOption == 'select') {
+    document.body.style.background = 'url(../assets/weather.jpg)';
+    document.body.style.backgroundSize = 'cover';
   }
 };
 
@@ -157,10 +154,8 @@ const registerEventHandlers = () => {
   state.decreaseTempControlButton.addEventListener('click', decreaseTemp);
   state.cityNameInput.addEventListener('input', changeCityName);
   state.currentTempButton.addEventListener('click', getCurrentTemp);
-  state.skySelect.addEventListener('change', changeSky)
-  state.cityNameReset.addEventListener('click', resetCityName)
-
-
+  state.skySelect.addEventListener('change', changeSky);
+  state.cityNameReset.addEventListener('click', resetCityName);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
