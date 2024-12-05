@@ -138,7 +138,7 @@ const changeSky = () => {
     document.body.style.backgroundImage = 'url(https://nelasunitha.github.io/weather-report/backgrounds/sunny_sky.jpg)';
     document.body.style.backgroundSize = 'cover';
   } else if (skyOption === 'cloudy') {
-    document.body.style.backgroundImage = 'url(https://nelasunitha.github.io/weather-report/backgrounds/cloudy_sky.jpg)';
+    document.body.style.backgroundImage = 'url(../backgrounds/cloudy_sky.jpg)';
     document.body.style.backgroundSize = 'cover';
   } else if (skyOption === 'rainy') {
     document.body.style.backgroundImage = 'url(https://nelasunitha.github.io/weather-report/backgrounds/rainy.jpg)';
