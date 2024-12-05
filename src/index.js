@@ -57,7 +57,7 @@ const getLatAndLon = () => {
   let longitude, latitude;
 
   return axios
-    .get('http://127.0.0.1:5000/location', {
+    .get('https://ada-weather-report-proxy-server.onrender.com/location', {
       params: {
         q: city,
       },
@@ -75,7 +75,7 @@ const getWeather = (latitude, longitude) => {
   let cityTemp;
 
   return axios
-    .get('http://127.0.0.1:5000/weather', {
+    .get('https://ada-weather-report-proxy-server.onrender.com/weather', {
       params: {
         lat: latitude,
         lon: longitude,
