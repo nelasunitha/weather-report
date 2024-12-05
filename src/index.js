@@ -123,6 +123,9 @@ const changeColorByTemperature = (temperature) => {
   } else if (temperature >= 50 && temperature <= 59) {
     tempValue.style.color = 'darkorange';
     landscape.textContent = '☕🍂🧺🧸☕🍂🧺🧸☕🍂🧺🧸☕🍂🧺🧸☕🍂🧺🧸';
+  } else if (temperature >= 40 && temperature <= 49) {
+    tempValue.style.color = 'lightblue';
+    landscape.textContent = '❄️⛸️🐧🎄🧣❄️⛸️🐧🎄🧣❄️⛸️🐧🎄🧣❄️⛸️🐧🎄🧣';
   } else {
     tempValue.style.color = 'teal';
     landscape.textContent = '❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️❄️🥶☃️';
